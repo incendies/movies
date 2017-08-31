@@ -6,33 +6,33 @@ from django.core.urlresolvers import reverse
 
 
 class Movie(models.Model):
-    movie_id = models.IntegerField(primary_key=True)
-    poster_path = models.TextField(max_length=100)
-    adult = models.BooleanField()
-    overview = models.TextField(max_length=300)
-    release_date = models.DateField()
-    original_title = models.TextField()
-    original_language = models.TextField()
-    title = models.TextField()
-    backdrop_path = models.TextField()
-    popularity = models.TextField()
-    vote_count = models.TextField()
-    video = models.BooleanField()
-    vote_average = models.TextField()
-    genre_ids = ArrayField(models.CharField(max_length=50))
+    movie_id = models.OneToOneField('MovieDetails')
+    poster_path = models.TextField(max_length=100,null=True,blank=True)
+    adult = models.NullBooleanField(blank=True, null=True)
+    overview = models.TextField(max_length=300,null=True,blank=True)
+    release_date = models.DateField(null=True,blank=True)
+    original_title = models.TextField(null=True,blank=True)
+    original_language = models.TextField(null=True,blank=True)
+    title = models.TextField(null=True,blank=True)
+    backdrop_path = models.TextField(null=True,blank=True)
+    popularity = models.TextField(null=True,blank=True)
+    vote_count = models.TextField(null=True,blank=True)
+    video = models.NullBooleanField(blank=True, null=True)
+    vote_average = models.TextField(null=True,blank=True)
+    genre_ids = ArrayField(models.CharField(max_length=50),null=True,blank=True)
+
 
 
 class MovieDetails(models.Model):
-    movie_id = models.OneToOneField(Movie,on_delete=models.CASCADE,primary_key=True,)
-    #movie_id = models.ForeignKey(Movie)
-    backdrop_path = models.TextField(max_length=100)
-    original_title = models.TextField()
-    overview = models.TextField(max_length=300)
-    runtime = models.TextField()
-    vote_average = models.TextField()
-    production_company = models.TextField()
-    release_date = models.DateField()
-    cast = models.CharField(max_length=5000)
+    movie_id = models.IntegerField()
+    backdrop_path = models.TextField(max_length=100,null=True,blank=True)
+    original_title = models.TextField(null=True,blank=True)
+    overview = models.TextField(max_length=300,null=True,blank=True)
+    runtime = models.TextField(null=True,blank=True)
+    vote_average = models.TextField(null=True,blank=True)
+    production_company = models.TextField(null=True,blank=True)
+    release_date = models.DateField(null=True,blank=True)
+    cast = models.CharField(max_length=5000,null=True,blank=True)
 
 
 
