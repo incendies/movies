@@ -29,6 +29,12 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+#CORS_ORIGIN_ALLOW_ALL=True
+CORS_ORIGIN_WHITELIST = (
+
+    'localhost:3000',
+    '127.0.0.1:8000'
+)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -38,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'moviesAPP.apps.MoviesappConfig',
 ]
 
@@ -49,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'movies.urls'
@@ -127,6 +136,8 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
 }
+
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
