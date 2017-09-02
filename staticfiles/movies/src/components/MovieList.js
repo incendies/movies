@@ -6,6 +6,7 @@ import {
   Link,
   Redirect
 } from 'react-router-dom';
+import { Grid, Row, Col} from 'react-bootstrap';
 import axios from 'axios';
 import MovieDetails from './MovieDetails.js'
 
@@ -31,39 +32,38 @@ class MovieList extends Component {
   }
 
   render() {
+      const style={
+	display: 'flex',
+	flexWrap: 'wrap'
+  }
+
     const movieList = this.state.data.map((el, index) => {
       return (
 
     <div key={index}>
-    <Router>
-    <div>
-    <div className="list1">
-    <div class="thumbnail">
-    <div>
-    <Link to={'/MovieDetails:'+el.title}>
-    <a class="thumbnail">
-       <img className="moviePic" src={'https://image.tmdb.org/t/p/w500' + el.poster_path} alt={el.title} />
-    </a>
-    </Link>
-    <Route path={'/MovieDetails:'+el.title} component={MovieDetails}/>
-    </div>
-    <div class="caption">
-        <h3>{el.title}</h3>
-        <p>{el.overview}</p>
-        <p>Average Rate:{el.vote_average}</p>
-     </div>
-     </div>
-     </div>
-
-   </div>
-    </Router>
+    <Col xs={6} sm={4} md={3} key={el.movie_id} >
+            <div className="list1">
+            <div class="thumbnail">
+            <Link to={'/details/'+el.title} >
+            <img className="moviePic" src={'https://image.tmdb.org/t/p/w500' + el.poster_path} alt="movie.." />
+            </Link>
+            <div class="caption">
+               <h3> {el.title}</h3>
+               <p>{el.overview}</p>
+              <p>Average Rate:{el.vote_average}</p>
+           </div>
+           </div>
+           </div>
+          </Col>
     </div>
    )});
 
     return(
-    <div>
-       <div>{ movieList }</div>
-    </div>
+    <Grid fluid={false}>
+        <Row style={style}>
+          {movieList}
+        </Row>
+      </Grid>
 
     );}
 }
