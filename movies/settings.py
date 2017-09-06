@@ -11,10 +11,16 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ABSOLUTE_PROJECT_ROOT = BASE_DIR
+ABSOLUTE_TEMPLATES_PATH = os.path.abspath(os.path.join(ABSOLUTE_PROJECT_ROOT,
+                                                       'templates/'))
 
+if ABSOLUTE_PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, ABSOLUTE_PROJECT_ROOT)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -27,15 +33,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
-# Application definition
-#CORS_ORIGIN_ALLOW_ALL=True
-CORS_ORIGIN_WHITELIST = (
-
-    'localhost:3000',
-    '127.0.0.1:8000'
-)
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -44,8 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'corsheaders',
-    'moviesAPP.apps.MoviesappConfig',
+    'moviesAPP',
 ]
 
 MIDDLEWARE = [
@@ -56,7 +52,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
 ]
 
@@ -65,21 +60,29 @@ ROOT_URLCONF = 'movies.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [ABSOLUTE_TEMPLATES_PATH, ],
+        'APP_DIRS': False,
         'OPTIONS': {
+            'debug': DEBUG,
             'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.template.context_processors.request',
                 'django.contrib.messages.context_processors.messages',
             ],
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+            ]
         },
     },
 ]
 
 WSGI_APPLICATION = 'movies.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -89,13 +92,12 @@ DATABASES = {
         # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'movies',
-        'USER': 'postgres',
+        'USER': 'movies',
         'PASSWORD': '12345',
         'HOST': 'localhost',
         'PORT': '5432',
     },
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -114,7 +116,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
@@ -137,9 +138,18 @@ REST_FRAMEWORK = {
     ]
 }
 
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+STATIC_ROOT = os.path.abspath(os.path.join(ABSOLUTE_PROJECT_ROOT, '../movies_static/'))
+# Absolute filesystem path to the directory that will hold user-uploaded files.
+MEDIA_ROOT = os.path.abspath(os.path.join(ABSOLUTE_PROJECT_ROOT, 'media/'))
+
+# Additional locations of static files
+STATICFILES_DIRS = (
+    os.path.abspath(os.path.join(ABSOLUTE_PROJECT_ROOT, 'staticfiles/movies/build/')),
+)
+
+# URL that handles the media, static, etc.
 STATIC_URL = '/static/'
+MEDIA_URL = STATIC_URL + 'media/'

@@ -56,7 +56,7 @@ class MovieDetails extends Component {
     return(
 
     <Grid fluid={false}>
-        <Row>
+       <Row>
            {movieList}
         </Row>
       </Grid>

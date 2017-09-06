@@ -22,7 +22,7 @@ class MovieList extends Component {
 
   componentDidMount(){
     axios
-      .get('http://127.0.0.1:8000/movie/movies/?format=json')
+      .get('http://127.0.0.1:8000/movie/restapi/movies/?format=json')
       .then(({ data })=> {
       	this.setState({
           data: data
@@ -60,6 +60,7 @@ class MovieList extends Component {
 
     return(
     <Grid fluid={false}>
+    test
         <Row style={style}>
           {movieList}
         </Row>
