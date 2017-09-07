@@ -15,6 +15,7 @@ body {
 }
 
 .list1 {
+    width:30%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
     transition: 0.3s;
     border-radius: 5px;
@@ -43,7 +44,7 @@ body {
 .moviePic {
 
     border-radius: 5px 5px 0 0;
-    width:90%;
+    width:100px;
 }
 
 .container {

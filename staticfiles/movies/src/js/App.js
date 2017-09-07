@@ -8,7 +8,7 @@ import {
 import MovieList from './components/MovieList.js'
 import MovieDetails from './components/MovieDetails'
 
-import './App.css';
+import '../css/App.css';
 
 class App extends Component {
   render() {

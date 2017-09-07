@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 var BUILD_DIR = path.resolve(__dirname);
-var APP_DIR = path.resolve(__dirname, 'src/');
+var APP_DIR = path.resolve(__dirname, 'src/js/');
 
 var config = {
   entry: APP_DIR + '/index.js',
@@ -21,7 +21,7 @@ var config = {
       },
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader"
+        loader: "style-loader!css-loader",
       }
     ]
   }
