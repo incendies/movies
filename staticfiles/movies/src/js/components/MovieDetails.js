@@ -23,10 +23,10 @@ class MovieDetails extends Component {
 
   componentDidMount(){
     axios
-      .get('http://127.0.0.1:8000/movie/restapi/movieDetails/?format=json')
+      .get('http://127.0.0.1:8000/movie/restapi/movieDetails/'+ this.props.match.params.movie_id + '/?format=json')
       .then(({ data })=> {
       	this.setState({
-          data: data
+          data: [data]
         });
       })
       .catch((err)=> {})
