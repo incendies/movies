@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 
 
 class Movie(models.Model):
-    movie_id = models.OneToOneField('MovieDetails')
+    movie_id = models.IntegerField(primary_key=True)
     poster_path = models.TextField(max_length=100,null=True,blank=True)
     adult = models.NullBooleanField(blank=True, null=True)
     overview = models.TextField(max_length=300,null=True,blank=True)
@@ -24,7 +24,7 @@ class Movie(models.Model):
 
 
 class MovieDetails(models.Model):
-    movie_id = models.IntegerField()
+    movie_id = models.ForeignKey(Movie, on_delete=models.CASCADE)
     backdrop_path = models.TextField(max_length=100,null=True,blank=True)
     original_title = models.TextField(null=True,blank=True)
     overview = models.TextField(max_length=300,null=True,blank=True)

@@ -7,8 +7,9 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from moviesAPP.views import HomeView
 
 urlpatterns = [
-    url(r'^$', HomeView.as_view()),
-
     url(r'^admin/', admin.site.urls),
     url(r'^movie/', include('moviesAPP.urls')),
+    url(r'^', HomeView.as_view()),
+
+
   ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -44,7 +44,7 @@ class MovieList extends Component {
     <Col xs={6} sm={4} md={3} key={el.movie_id} >
             <div className="list1">
             <div class="thumbnail">
-            <Link to={'/details/'+el.title} >
+            <Link to={'details/'+el.movie_id} >
             <img className="moviePic" src={'https://image.tmdb.org/t/p/w500' + el.poster_path} alt="movie.." />
             </Link>
             <div class="caption">
@@ -60,7 +60,6 @@ class MovieList extends Component {
 
     return(
     <Grid fluid={false}>
-    test
         <Row style={style}>
           {movieList}
         </Row>

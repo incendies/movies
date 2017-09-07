@@ -13,11 +13,11 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-     <Router>
-    <div>
-    <Route exact path="/" component={MovieList}/>
-    <Route path={'/details/'} component={MovieDetails}/>
-    </div>
+    <Router>
+        <div>
+            <Route exact path="/" component={MovieList}/>
+            <Route path={'/details/'} component={MovieDetails}/>
+        </div>
     </Router>
     );
   }
