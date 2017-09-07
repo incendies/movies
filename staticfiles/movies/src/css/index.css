@@ -15,7 +15,6 @@ body {
 }
 
 .list1 {
-    width:30%;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
     transition: 0.3s;
     border-radius: 5px;
@@ -24,10 +23,10 @@ body {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-flex-flow: row wrap;
-    -ms-flex-flow: row wrap;
+    webkit-flex-flow: row wrap;
+    ms-flex-flow: row wrap;
     flex-flow: row wrap;
-
+    max-width:300px;
 }
 
 .list1:hover {
