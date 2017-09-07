@@ -21,6 +21,9 @@ class Movie(models.Model):
     vote_average = models.TextField(null=True,blank=True)
     genre_ids = ArrayField(models.CharField(max_length=50),null=True,blank=True)
 
+    def __str__(self):
+        return str(self.movie_id) + '-' + self.title
+
 
 
 class MovieDetails(models.Model):
@@ -34,5 +37,5 @@ class MovieDetails(models.Model):
     release_date = models.DateField(null=True,blank=True)
     cast = models.CharField(max_length=5000,null=True,blank=True)
 
-
-
+    def __str__(self):
+        return str(self.movie_id)
