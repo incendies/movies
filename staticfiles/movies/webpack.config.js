@@ -1,13 +1,13 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'public');
+var BUILD_DIR = path.resolve(__dirname);
 var APP_DIR = path.resolve(__dirname, 'src/');
 
 var config = {
   entry: APP_DIR + '/index.js',
   output: {
-    path: BUILD_DIR,
+    path: BUILD_DIR + '/public',
     filename: 'bundle.js'
   },
   module : {
@@ -16,7 +16,7 @@ var config = {
         test: /\.js$/,
         loader: 'babel-loader',
         query: {
-          presets: ['/Users/e-net/mcc/movies/staticfiles/movies/node_modules/babel-preset-es2015']
+          presets: [BUILD_DIR + '/node_modules/babel-preset-es2015']
         }
       },
       {

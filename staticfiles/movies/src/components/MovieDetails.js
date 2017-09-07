@@ -58,7 +58,6 @@ class MovieDetails extends Component {
 
     <Grid fluid={false}>
        <Row>
-       aaa
            {movieList}
         </Row>
       </Grid>

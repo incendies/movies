@@ -147,7 +147,7 @@ MEDIA_ROOT = os.path.abspath(os.path.join(ABSOLUTE_PROJECT_ROOT, 'media/'))
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.abspath(os.path.join(ABSOLUTE_PROJECT_ROOT, 'staticfiles/movies/build/')),
+    os.path.abspath(os.path.join(ABSOLUTE_PROJECT_ROOT, 'staticfiles/movies/public/')),
 )
 
 # URL that handles the media, static, etc.
