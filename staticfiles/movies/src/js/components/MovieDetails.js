@@ -40,7 +40,7 @@ class MovieDetails extends Component {
       return (
     <div>
     <div key={index}>
-    <div class="thumbnail">
+    <div className="thumbnail">
     <div>
     <img className="moviePic1"  src={'https://image.tmdb.org/t/p/w500' + el.backdrop_path} alt="movie.." />
     </div>
@@ -55,12 +55,9 @@ class MovieDetails extends Component {
    )});
 
     return(
-
-    <Grid fluid={false}>
-       <Row>
+<div>
            {movieList}
-        </Row>
-      </Grid>
+</div>
 
     );}
 }

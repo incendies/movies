@@ -32,17 +32,12 @@ class MovieList extends Component {
   }
 
   render() {
-      const style={
-	display: 'flex',
-	flexWrap: 'wrap'
-  }
 
     const movieList = this.state.data.map((el, index) => {
       return (
 
     <div key={index}>
-    <Col xs={6} sm={4} md={3} key={el.movie_id} >
-            <div className="list1">
+            <div className="movieElement">
             <div class="thumbnail">
             <Link to={'details/'+el.movie_id} >
             <img className="moviePic" src={'https://image.tmdb.org/t/p/w500' + el.poster_path} alt="movie.." />
@@ -54,17 +49,14 @@ class MovieList extends Component {
            </div>
            </div>
            </div>
-          </Col>
     </div>
+
    )});
 
     return(
-    <Grid fluid={false}>
-        <Row style={style}>
+         <div className="container">
           {movieList}
-        </Row>
-      </Grid>
-
+        </div>
     );}
 }
 

@@ -5,17 +5,7 @@ body {
 }
 
 .www{
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-flow: row wrap;
-    -ms-flex-flow: row wrap;
-    flex-flow: row wrap;
-}
-
-.list1 {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
     transition: 0.3s;
     border-radius: 5px;
     padding:20px;
@@ -29,23 +19,35 @@ body {
     max-width:300px;
 }
 
+.movieElement {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+    transition: 0.3s;
+    border-radius: 5px;
+    padding:20px;
+    width:30%;
+
+
+
+}
+
 .list1:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,1);
 
 }
 
-.moviePic1 {
-
-    border-radius: 5px 5px 0 0;
-    width: 200px;
-}
-
 .moviePic {
 
     border-radius: 5px 5px 0 0;
-    width:100px;
+    width:100%;
 }
 
 .container {
     padding: 2px 2px;
+    max-width:100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+
+
 }
