@@ -36,7 +36,7 @@ class MovieList extends Component {
     const movieList = this.state.data.map((el, index) => {
       return (
 
-    <div key={index}>
+
             <div className="movieElement">
             <div class="thumbnail">
             <Link to={'details/'+el.movie_id} >
@@ -49,7 +49,7 @@ class MovieList extends Component {
            </div>
            </div>
            </div>
-    </div>
+
 
    )});
 
