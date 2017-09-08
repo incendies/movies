@@ -5,7 +5,7 @@ body {
 }
 
 .www{
-   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
     transition: 0.3s;
     border-radius: 5px;
     padding:20px;
@@ -23,16 +23,12 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
     transition: 0.3s;
     border-radius: 5px;
+    margin:20px;
+    width:20%;
     padding:20px;
-    width:30%;
-
-
-
-
-
 }
 
-.list1:hover {
+.movieElement:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,1);
 
 }
@@ -44,12 +40,13 @@ body {
 }
 
 .container {
+    width:960px;
+    margin: auto;
+    position: relative;
     padding: 2px 2px;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-
-
 
 
 }

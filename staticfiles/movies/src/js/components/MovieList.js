@@ -8,7 +8,6 @@ import {
 } from 'react-router-dom';
 import { Grid, Row, Col} from 'react-bootstrap';
 import axios from 'axios';
-import MovieDetails from './MovieDetails.js'
 
 class MovieList extends Component {
 
@@ -54,9 +53,11 @@ class MovieList extends Component {
    )});
 
     return(
+    <div>
          <div className="container">
           {movieList}
         </div>
+     </div>
     );}
 }
 
