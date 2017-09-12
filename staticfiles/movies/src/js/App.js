@@ -5,9 +5,9 @@ import {
   Link,
   Redirect
 } from 'react-router-dom';
-import MovieList from './components/MovieList.js'
-import MovieDetails from './components/MovieDetails'
-import AppHeader from './components/AppHeader.js'
+import MovieList from '../components/MovieList.js'
+import MovieDetails from '../components/MovieDetails'
+import AppHeader from '../components/AppHeader.js'
 
 import '../css/App.css';
 

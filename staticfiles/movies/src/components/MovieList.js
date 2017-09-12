@@ -36,17 +36,17 @@ class MovieList extends Component {
       return (
 
 
-            <div className="movieElement">
-            <div class="thumbnail">
+            <div className="movieElement" key={index} >
+
             <Link to={'details/'+el.movie_id} >
             <img className="moviePic" src={'https://image.tmdb.org/t/p/w500' + el.poster_path} alt="movie.." />
             </Link>
-            <div class="caption">
+            <div className="caption">
                <h3> {el.title}</h3>
                <p>{el.overview}</p>
               <p>Average Rate:{el.vote_average}</p>
            </div>
-           </div>
+
            </div>
 
 
